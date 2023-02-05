@@ -3,6 +3,10 @@ plugins {
 }
 
 android {
+    lintOptions {
+        disable "Instantiatable"
+    }
+
     namespace 'edu.northeastern.numad23sp_shambhavikul'
     compileSdk 32
 

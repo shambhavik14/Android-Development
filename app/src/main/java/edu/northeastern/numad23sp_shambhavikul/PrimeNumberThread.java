@@ -22,10 +22,26 @@ public class PrimeNumberThread implements Runnable {
         long nextPrime = nextPrime();
         System.out.println("Setting value : " + count);
 
+        this.lastSearch.setText("Number being checked is: "+ String.valueOf(checked()));
         this.primeNumberView.setText("Current Prime number is: "+ String.valueOf(nextPrime));
 
-
         handler.postDelayed(this, 1000);
+    }
+
+
+    public long checked() {
+        long check = this.count + 2;
+        return check;
+    }
+    public long nextPrime() {
+        this.count++;
+        while(!isPrime(this.count)) {
+            //if(this.count%2 != 0){
+            //this.lastSearch.setText("Last number checked is: "+this.count);
+            //}
+            this.count++;
+        }
+        return this.count;
     }
 
     public boolean isPrime(long num){
@@ -39,17 +55,9 @@ public class PrimeNumberThread implements Runnable {
             ++i;
         }
         return !flag;
+
     }
 
-    public long nextPrime() {
-        this.count++;
-        while(!isPrime(this.count)) {
-            if(this.count%10 ==0){
-                this.lastSearch.setText("Last number checked is: "+this.count);
-            }
-            this.count++;
-        }
-        return this.count;
-    }
+
 }
 

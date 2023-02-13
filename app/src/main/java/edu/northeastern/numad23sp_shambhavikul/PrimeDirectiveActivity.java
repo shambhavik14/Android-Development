@@ -1,5 +1,6 @@
 package edu.northeastern.numad23sp_shambhavikul;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -23,7 +24,6 @@ public class PrimeDirectiveActivity extends AppCompatActivity {
     private TextView primeNumberView;
     private TextView lastSearch;
     private CheckBox toggle;
-    //    private long startNumber;
     private Handler mHandler;
     public volatile static long startNumber=2;
 
@@ -38,7 +38,6 @@ public class PrimeDirectiveActivity extends AppCompatActivity {
         lastSearch = findViewById(R.id.current_numberText);
 
         handler = new Handler();
-//        primeNumberThread = new PrimeNumberThread(primeNumberView,lastSearch, handler,startNumber);
 
         Button prime_directive = (Button) findViewById(R.id.find_prime);
         if (prime_directive != null) {
@@ -79,6 +78,7 @@ public class PrimeDirectiveActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("No", null)
                 .show();
+
     }
 
 
@@ -90,7 +90,30 @@ public class PrimeDirectiveActivity extends AppCompatActivity {
 
     }
 
-    private void stopFindPrimeNumbersThread() {
+    private boolean stopFindPrimeNumbersThread() {
         handler.removeCallbacksAndMessages(null);
+        return true;
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String textToStore = primeNumberView.getText().toString();
+        String textToCheck = lastSearch.getText().toString();
+        outState.putString("key", textToStore);
+        outState.putString("key1", textToCheck);
+    }
+
+    @Override
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        String textToStore = primeNumberView.getText().toString();
+        String textToCheck = lastSearch.getText().toString();
+        textToStore = savedInstanceState.getString("key", "0");
+        textToCheck = savedInstanceState.getString("key1","0");
+        primeNumberView.setText(textToStore);
+        lastSearch.setText(textToCheck);
+
+    }
+
 }

@@ -21,6 +21,11 @@
     <string name="current_number_is">Current number is: </string>
     <string name="latest_prime_number_is">Latest Prime number is: </string>
     <string name="pacifier_switch">Pacifier Switch</string>
+    <string name="location">Location</string>
+    <string name="location_latitude">Latitude :</string>
+    <string name="location_longitude">Longitude :</string>
+    <string name="total_distance">Total distance:</string>
+    <string name="reset_distance">Reset Distance</string>
 
 
 </resources>

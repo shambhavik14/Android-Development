@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PrimeDirectiveActivity">
+    tools:context=".PrimeDirectiveActivity"
+    android:configChanges="orientation|screenSize">
 
     <Button
         android:id="@+id/find_prime"

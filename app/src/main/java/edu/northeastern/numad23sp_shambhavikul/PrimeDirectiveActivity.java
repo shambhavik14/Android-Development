@@ -41,7 +41,7 @@ public class PrimeDirectiveActivity extends AppCompatActivity {
 
         Button prime_directive = (Button) findViewById(R.id.find_prime);
         if (prime_directive != null) {
-            lastSearch.setText("Last number checked is");
+            lastSearch.setText("Current number checked is");
             prime_directive.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
